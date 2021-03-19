@@ -13,7 +13,7 @@ export class SplashPage implements OnInit {
   constructor(private router: Router, private DataService: DataService) { }
 
   ngOnInit() {
-    //this.getData();
+    this.getData();
   }
 
   async getData() {

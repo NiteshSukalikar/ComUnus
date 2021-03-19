@@ -25,136 +25,7 @@ export class HomePage implements OnInit {
   selectedQuestions: any;
   filteredPeople: any;
 
-  images: any = [
-
-    {
-      "albumId": 1,
-      "id": 1,
-      "title": "accusamus beatae ad facilis cum similique qui sunt",
-      "url": "https://via.placeholder.com/600/92c952",
-      "thumbnailUrl": "https://via.placeholder.com/150/92c952"
-    },
-    {
-      "albumId": 1,
-      "id": 2,
-      "title": "reprehenderit est deserunt velit ipsam",
-      "url": "https://via.placeholder.com/600/771796",
-      "thumbnailUrl": "https://via.placeholder.com/150/771796"
-    },
-    {
-      "albumId": 1,
-      "id": 3,
-      "title": "officia porro iure quia iusto qui ipsa ut modi",
-      "url": "https://via.placeholder.com/600/24f355",
-      "thumbnailUrl": "https://via.placeholder.com/150/24f355"
-    },
-    {
-      "albumId": 1,
-      "id": 4,
-      "title": "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
-      "url": "https://via.placeholder.com/600/d32776",
-      "thumbnailUrl": "https://via.placeholder.com/150/d32776"
-    },
-    {
-      "albumId": 1,
-      "id": 5,
-      "title": "natus nisi omnis corporis facere molestiae rerum in",
-      "url": "https://via.placeholder.com/600/f66b97",
-      "thumbnailUrl": "https://via.placeholder.com/150/f66b97"
-    },
-    {
-      "albumId": 1,
-      "id": 6,
-      "title": "accusamus ea aliquid et amet sequi nemo",
-      "url": "https://via.placeholder.com/600/56a8c2",
-      "thumbnailUrl": "https://via.placeholder.com/150/56a8c2"
-    },
-    {
-      "albumId": 1,
-      "id": 7,
-      "title": "accusamus beatae ad facilis cum similique qui sunt",
-      "url": "https://via.placeholder.com/600/92c952",
-      "thumbnailUrl": "https://via.placeholder.com/150/92c952"
-    },
-    {
-      "albumId": 1,
-      "id": 8,
-      "title": "reprehenderit est deserunt velit ipsam",
-      "url": "https://via.placeholder.com/600/771796",
-      "thumbnailUrl": "https://via.placeholder.com/150/771796"
-    },
-    {
-      "albumId": 1,
-      "id": 9,
-      "title": "officia porro iure quia iusto qui ipsa ut modi",
-      "url": "https://via.placeholder.com/600/24f355",
-      "thumbnailUrl": "https://via.placeholder.com/150/24f355"
-    },
-    {
-      "albumId": 1,
-      "id": 10,
-      "title": "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
-      "url": "https://via.placeholder.com/600/d32776",
-      "thumbnailUrl": "https://via.placeholder.com/150/d32776"
-    },
-    {
-      "albumId": 1,
-      "id": 11,
-      "title": "natus nisi omnis corporis facere molestiae rerum in",
-      "url": "https://via.placeholder.com/600/f66b97",
-      "thumbnailUrl": "https://via.placeholder.com/150/f66b97"
-    },
-    {
-      "albumId": 1,
-      "id": 12,
-      "title": "accusamus ea aliquid et amet sequi nemo",
-      "url": "https://via.placeholder.com/600/56a8c2",
-      "thumbnailUrl": "https://via.placeholder.com/150/56a8c2"
-    },
-    {
-      "albumId": 1,
-      "id": 13,
-      "title": "accusamus beatae ad facilis cum similique qui sunt",
-      "url": "https://via.placeholder.com/600/92c952",
-      "thumbnailUrl": "https://via.placeholder.com/150/92c952"
-    },
-    {
-      "albumId": 1,
-      "id": 14,
-      "title": "reprehenderit est deserunt velit ipsam",
-      "url": "https://via.placeholder.com/600/771796",
-      "thumbnailUrl": "https://via.placeholder.com/150/771796"
-    },
-    {
-      "albumId": 1,
-      "id": 15,
-      "title": "officia porro iure quia iusto qui ipsa ut modi",
-      "url": "https://via.placeholder.com/600/24f355",
-      "thumbnailUrl": "https://via.placeholder.com/150/24f355"
-    },
-    {
-      "albumId": 1,
-      "id": 16,
-      "title": "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
-      "url": "https://via.placeholder.com/600/d32776",
-      "thumbnailUrl": "https://via.placeholder.com/150/d32776"
-    },
-    {
-      "albumId": 1,
-      "id": 17,
-      "title": "natus nisi omnis corporis facere molestiae rerum in",
-      "url": "https://via.placeholder.com/600/f66b97",
-      "thumbnailUrl": "https://via.placeholder.com/150/f66b97"
-    },
-    {
-      "albumId": 1,
-      "id": 18,
-      "title": "accusamus ea aliquid et amet sequi nemo",
-      "url": "https://via.placeholder.com/600/56a8c2",
-      "thumbnailUrl": "https://via.placeholder.com/150/56a8c2"
-    },
-  ];
-
+  
   finalImageData: any = [];
   storedData: any;
   constructor(private modalCtrl: ModalController, private DataService: DataService) { }
@@ -162,7 +33,9 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.isFirstLoad = "True";
-    this.storedData = JSON.parse(localStorage.getItem('test'));
+    if(localStorage.getItem('test')){
+      this.storedData = JSON.parse(localStorage.getItem('test'));
+    }
     this.addMoreItems(this.isFirstLoad);
 
   }
