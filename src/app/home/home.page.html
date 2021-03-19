@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button color="secondary" (click)="delete()">
+        <ion-icon slot="icon-only" ios="ios-trash" name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Gallary</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+
+  <!-- <ion-slides [options]="sliderOpts">
+    <ion-slide *ngFor="let images of [1,2,3,4]">
+      <img src="assets/img/{{images}}.jpg" alt="" tappable (click)="openPreview(images)">
+    </ion-slide>
+  </ion-slides> -->
+
+
+
+    <ion-list *ngFor="let image of finalImageData[0]">
+      <ion-checkbox (ionChange)="addCheckbox($event,image)" color="primary"></ion-checkbox>
+      <!-- <div  tappable (click)="openPreview(images)" class="image-container" [style.background-image]="'url(assets/img/'+ image.url +'.jpg)'">
+            </div> -->
+      <img (click)="openPreview(image)" class="image-container" src="{{image.url}}" alt="">
+    </ion-list>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event,'false')">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>
